@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+lib = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
+
+require 'app-detective'
+require 'optparse'
+
+optparse = OptionParser.new do |opts|
+  opts.on('-v', '--version', 'Print app-detective version') do
+    puts "AppDetective v#{AppDetective.version}"
+    exit
+  end
+end
+
+optparse.parse!
